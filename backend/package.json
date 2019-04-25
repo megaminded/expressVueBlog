@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "An expressJS backend for database interaction and some other backend features",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megaminded/expressVueBlog.git"
+  },
+  "keywords": [
+    "VueJS/ExpressJS"
+  ],
+  "author": "megaminded",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/megaminded/expressVueBlog/issues"
+  },
+  "homepage": "https://github.com/megaminded/expressVueBlog#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11"
+  }
+}
