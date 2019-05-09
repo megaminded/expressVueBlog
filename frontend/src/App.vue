@@ -1,23 +1,34 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+	<div id="app">
+		<div class="page">
+			<Blog/>
+		</div>
+		<div id="form">
+			<img src="./assets/logo.png">
+			<router-view/>
+		</div>
+	</div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
-</script>
+import axios from "axios";
+import Blog from "./components/Blog";
 
+export default {
+	components: {
+		Blog
+	}
+};
+</script>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	display: flex;
+}
+.page {
+	flex: 3;
+	margin: 40px 0;
+}
+.form {
+	flex: 2;
 }
 </style>
