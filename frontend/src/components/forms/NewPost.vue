@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<h3>Add Posts</h3>
-		<p>{{msg}}</p>
+		<p>{{post_id}}</p>
 		<small v-if="post.error.state">{{post.error.message}}</small>
 		<hr>
 		<form @submit.prevent="submit">
 			<label>Post title</label>
 			<input type="text" v-model="post.title">
 			<label>Post description</label>
-			<input type="text" v-model="post.description">
+			<textarea rows="20" v-model="post.description"></textarea>
 			<button type="submit">POST</button>
 		</form>
 	</div>
@@ -17,11 +17,13 @@
 <script>
 import axios from "axios";
 import config from "../../config/settings";
+import router from "../../router";
 export default {
-	name: "AddPost",
+	name: "NewPost",
+	props: ["id"],
 	data() {
 		return {
-			msg: "Complete form to add new blog post",
+			post_id: this.$route.params.id,
 			post: {
 				error: {
 					state: false,
@@ -32,6 +34,7 @@ export default {
 			}
 		};
 	},
+	mounted() {},
 	methods: {
 		submit() {
 			axios
@@ -41,8 +44,7 @@ export default {
 						this.post.error.state = result.data.error;
 						this.post.error.message = result.data.message;
 					} else {
-						this.post.error.state = true;
-						this.post.error.message = "Posts has been added";
+						router.push(`/blog/post/${result.data.message.insertId}`);
 					}
 				})
 				.catch(err => {
@@ -66,6 +68,9 @@ input[type="text"] {
 	width: 100%;
 	padding: 10px;
 	margin: 5px 0;
+}
+textarea {
+	width: 100%;
 }
 button {
 	padding: 5px;

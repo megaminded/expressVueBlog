@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "An expressJS backend for database interaction and some other backend features",
+  "description": "An expressJS Blog backend for database interaction and some other backend features",
   "main": "app.js",
   "scripts": {
     "start": "nodemon src/app.js"
